@@ -159,5 +159,11 @@ h1 {
     object-fit: cover;
 }
 
+#licorne {
+    grid-row: 2/4;
+    grid-column: 2/4;
+    align-self: center;
+    justify-self: center;
 
+}
 

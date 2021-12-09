@@ -1,9 +1,18 @@
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
+const btns = document.querySelectorAll('.btn');
 
+var model = undefined;
 var captureImage;
 
+var myLicorne = undefined;
+
 function startStreamVideo(){
+
+    if (myLicorne != undefined) {
+        myLicorne.remove();
+        myLicorne == undefined;
+    }
 
     handleVideoFrame(1);
     document.querySelector('#showme').play();
@@ -22,27 +31,14 @@ function startStreamVideo(){
 function imageRecognition(){
 
     var result = document.querySelector('.result');
-
-    // Load the model.
-    cocoSsd.load().then(model => {
-    
     // detect objects in the image.
     model.detect(canvas).then(predictions => {
         console.log('Predictions: ', predictions);
-        for (let n = 0; n < predictions.length; n++) {
-            // If we are over 66% sure we are sure we classified it right, draw it!
-            if (predictions[n].score > 0.66) {
-                var result = document.querySelector('.result');
-                var objectClass = predictions[n].class;
-                if(objectClass !== 'undefined') {
-                    result.innerHTML = predictions[n].class  + ' - with ' 
-                    + Math.round(parseFloat(predictions[n].score) * 100) 
-                    + '% confidence.';
-                }
-            }
+        var objectClass = predictions[0].class;
+        if(objectClass !== 'undefined') {
+            result.innerHTML = predictions[0].class;
         }
     });
-});
 }
 
 function stopStreamedVideo() {
@@ -58,14 +54,13 @@ function stopStreamedVideo() {
     video.srcObject = null;
 
     var img = document.createElement("img");
-    img.src = "img/licorne2.jpg"
+    img.src = "img/licorne.jpg"
     var maDiv = document.getElementById("licorne");
     maDiv.innerHTML = '';
     maDiv.appendChild(img);
+    myLicorne = img;
 
 };
-
-
 
 
 function myTimer(){
@@ -82,6 +77,7 @@ function handleVideoFrame(state){
     const frame = document.getElementById('video-frame');
     const order = document.querySelector('.order');
     const prediction = document.querySelector('.prediction');
+    const loader = document.getElementById('loader');
 
     if(state === 0){
         frame.setAttribute("style", "cursor:help");
@@ -98,8 +94,22 @@ function handleVideoFrame(state){
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed. Nono is ready!');
+    console.log('DOM fully loaded and parsed.');
+
+    //Load model and hide loader
+    cocoSsd.load().then(function (loadedModel) {
+        model = loadedModel;
+        console.log('Model fully loaded. Nono is ready!');
+        if(model !== undefined){
+            document.getElementById('loader').classList.add('hidden');
+            for(i =0 ; i < btns.length; i++){
+                btns[i].classList.remove('hidden');
+            }
+        }
+    });
+
     handleVideoFrame(0);
     document.querySelector('#btn-start').addEventListener('click', startStreamVideo);
     document.querySelector('#btn-stop').addEventListener('click', stopStreamedVideo);
