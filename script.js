@@ -54,7 +54,7 @@ function stopStreamedVideo() {
     video.srcObject = null;
 
     var img = document.createElement("img");
-    img.src = "img/licorne.jpg"
+    img.src = "img/licorne2.jpg"
     var maDiv = document.getElementById("licorne");
     maDiv.innerHTML = '';
     maDiv.appendChild(img);
