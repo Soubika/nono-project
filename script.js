@@ -48,7 +48,16 @@ function stopStreamedVideo() {
     });
     video.srcObject = null;
 
+    var img = document.createElement("img");
+    img.src = "img/licorne2.jpg"
+    var maDiv = document.getElementById("licorne");
+    maDiv.innerHTML = '';
+    maDiv.appendChild(img);
+
 };
+
+
+
 
 function myTimer(){
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
