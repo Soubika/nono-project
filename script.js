@@ -25,12 +25,21 @@ function imageRecognition(){
 
     // Load the model.
     cocoSsd.load().then(model => {
+    
     // detect objects in the image.
     model.detect(canvas).then(predictions => {
         console.log('Predictions: ', predictions);
-        var objectClass = predictions[0].class;
-        if(objectClass !== 'undefined') {
-            result.innerHTML = predictions[0].class;
+        for (let n = 0; n < predictions.length; n++) {
+            // If we are over 66% sure we are sure we classified it right, draw it!
+            if (predictions[n].score > 0.66) {
+                var result = document.querySelector('.result');
+                var objectClass = predictions[n].class;
+                if(objectClass !== 'undefined') {
+                    result.innerHTML = predictions[n].class  + ' - with ' 
+                    + Math.round(parseFloat(predictions[n].score) * 100) 
+                    + '% confidence.';
+                }
+            }
         }
     });
 });
