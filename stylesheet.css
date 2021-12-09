@@ -21,6 +21,29 @@ h1 {
     margin-bottom: 5px;
 }
 
+/*LOADER*/
+
+.loader {
+    border-top: 16px solid yellow;
+    border-right: 16px solid yellowgreen;
+    border-bottom: 16px solid lightseagreen;
+    border-left: 16px solid palevioletred;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    grid-row: 1;
+    grid-column: 1/5;
+    justify-self: center;
+    align-self: center;
+    z-index: 5;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 /*BUTTON SECTION*/
 
 .btn {
@@ -69,16 +92,6 @@ h1 {
 }
 
 /*WEBCAM SECTION*/
-
-.countdown {
-    font-weight: 400;
-    font-size: 5em;
-    grid-row: 1;
-    grid-column: 1/5;
-    justify-self: center;
-    align-self: center;
-    z-index: 5;
-}
 
 .top-frame {
     max-width: 100%;

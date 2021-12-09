@@ -17,17 +17,17 @@
     <h1>Nono's Objects Recognition POC</h1>
     <main class="container">
     <!--button section-->
-        <div class="btn btn-left">
+        <div class="btn btn-left hidden">
             <i class="fas fa-play-circle" id="btn-start" aria-label="Play"></i>
         </div>
-        <div class="btn btn-right">
+        <div class="btn btn-right hidden">
             <i class="fas fa-stop-circle" 
                 id="btn-stop"
                 aria-label="Stop"></i>
         </div>
-    <!--frame section-->
+    <!--video frame sections-->
         <img class="top-frame" src="img/topframe.png" alt="nono top" />
-        <a class="countdown hidden">5</a>
+        <div id="loader" class="loader"></div>
 
         <img class="left-frame" src="img/leftframe.png" alt="nono left" />
         <img class="right-frame" src="img/rightframe.png" alt="nono right" />
@@ -40,7 +40,7 @@
         <div id="licorne"></div>
 
         <canvas id="canvas" width="320" height="240" class="hidden"></canvas>
-
+    <!--audios-->
         <audio id="hello" preload="auto" controls src="audio/hello.mp3" class="hidden"></audio>
         <audio id="showme" preload="auto" controls src="audio/showme.mp3" class="hidden"></audio>
         <audio id="bye" preload="auto" controls src="audio/bye.mp3" class="hidden"></audio>
