@@ -18,12 +18,12 @@
     <main class="container">
     <!--button section-->
         <div class="btn btn-left hidden">
-            <i class="fas fa-play-circle" id="btn-start" aria-label="Play"></i>
+            <i class="fas fa-play-circle" id="btn-start"></i>
         </div>
         <div class="btn btn-right hidden">
             <i class="fas fa-stop-circle" 
                 id="btn-stop"
-                aria-label="Stop"></i>
+            ></i>
         </div>
     <!--video frame sections-->
         <img class="top-frame" src="img/topframe.png" alt="nono top" />
@@ -33,7 +33,7 @@
         <img class="right-frame" src="img/rightframe.png" alt="nono right" />
 
         <a class="order hidden">Show me something!</a>
-        <img id="video-frame" src="img/nono-head.png" alt="nono middle" />
+        <img id="video-frame" src="img/nono-head.png" alt="nono middle" data-audio="hello"/>
         <video id="video" autoplay class="hidden"></video>
         <a class="prediction hidden">It's a <span class="result">... </span></a>
 
@@ -52,9 +52,9 @@
     <script src="script.js"></script>
 
     <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" integrity="sha384-aCaxUP5DnkI7QE6SRaVW2z7cuxdMspuE4prBgfFMCLRhnUw7/Ws42SeDRbn3wPnw" crossorigin="anonymous"></script>
     <!-- Load the coco-ssd model. -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd" integrity="sha384-/Ze86je+L/XYNre5spsZmGKuRlc3l7SmjraCSxWNzYE5QqbnXPrhMz81bDA4fcox" crossorigin="anonymous"></script>
 
 </body>
 
