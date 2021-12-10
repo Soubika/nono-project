@@ -56,6 +56,11 @@ h1 {
     padding: 20px;
     border-radius: 100%;
     margin: 50px;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+.btn:hover {
+    background-color: rgb(69, 247, 25);
 }
 
 .btn i {
@@ -66,11 +71,6 @@ h1 {
 
 #btn-start, #btn-stop {
     color: white;
-    transition-property: color;
-    transition-duration: 2s;
-}
-#btn-start:hover, #btn-stop:hover {
-    color: red;
 }
 
 .hidden {
