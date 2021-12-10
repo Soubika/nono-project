@@ -118,7 +118,7 @@ h1 {
     align-self: center;
 }
 
-.order {
+.prediction {
     font-family: 'Source Code Pro', monospace;
     grid-row: 2/4;
     grid-column: 2/4;
@@ -136,7 +136,7 @@ h1 {
     grid-column: 2/4;
     justify-self: center;
 }
-.prediction {
+.order {
     font-family: 'Source Code Pro', monospace;
     grid-row: 2/4;
     grid-column: 2/4;
